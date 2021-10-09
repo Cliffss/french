@@ -1,0 +1,102 @@
+#!/bin/bash
+i=0
+
+PS3='What is correct?'
+foods=( "Il ya" "Il y a" "Ily a" "Quit")
+select fav in "${foods[@]}"; do
+    case $fav in
+"Il ya")
+            echo "Incorrect, moving on."
+echo "--------------------------------"
+	    break
+       ;;
+        "Il y a")
+            echo "Correct, moving on."
+i=$((i+1))
+echo "--------------------------------"
+	   break
+ ;;
+        "Ily a")
+            echo "Unlucky, moving on."
+echo "--------------------------------"
+	    break
+            ;;
+	"Quit")
+	    echo "User requested exit"
+	    exit
+	    ;;
+        *) echo "Invalid option $REPLY";;
+esac
+done
+
+PS3='What is correct?'
+foods=("Un patinore" "Un patinoire" "Un pationiore" "Quit")
+select fav in "${foods[@]}"; do
+    case $fav in
+        "Un patinore")
+            echo "Awww, unlucky. Moving on."
+echo "--------------------------------"
+break
+	       ;;
+        "Un patinoire")
+            echo "Correct! Moving on."
+i=$((i+1))
+echo "--------------------------------"
+ break
+ ;;
+        "Un pationiore")
+            echo "Incorrect, moving on.."
+echo "--------------------------------"
+	    break
+            ;;
+	"Quit")
+	    echo "User requested exit"
+	    exit
+	    ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+PS3='What is the odd one out?'
+foods=("J'habite" "L'est" "L'ouest" "Quit")
+select fav in "${foods[@]}"; do
+    case $fav in
+        "J'habite")
+            echo "Correct!."
+i=$((i+1))
+echo "--------------------------------"
+break
+	             ;;
+        "L'est")
+            echo "Unlucky."
+echo "--------------------------------"
+break
+	       ;;
+        "L'ouest")
+            echo "Wrong."
+echo "--------------------------------"
+	   break
+            ;;
+	"Quit")
+	    echo "User requested exit"
+	    exit
+	    ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+
+while true; do
+    read -p "Do you wish to know your score? (y/n)" yn
+    case $yn in
+        [Yy]* ) break; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+
+
+echo "--------------------------------"
+
+echo "Your Score is $i/3"

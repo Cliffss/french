@@ -1,0 +1,11 @@
+
+clear
+
+while true; do
+    read -p "Do you wish to start the quiz?" yn
+    case $yn in
+        [Yy]* ) ./full; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
